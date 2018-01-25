@@ -30,13 +30,13 @@ More information can be found here: https://www.npmjs.com/package/cordova-plugin
 To show a specific place in Google Maps add the following code:
 
 ```js
-window.location.href = "https://www.google.com/maps/search/?api=1&query=place;
+window.location.href = "https://www.google.com/maps/search/?api=1&query=place";
 ```
 
 To open a navigation to the specific place from the current location add the following code:
 
 ```js
-window.location.href = "https://www.google.com/maps/dir/?api=1&destination=place;
+window.location.href = "https://www.google.com/maps/dir/?api=1&destination=place";
 ```
 
 More information can be found here: https://developers.google.com/maps/documentation/urls/guide
@@ -56,10 +56,7 @@ Important is to implement the callback functions 'onSuccess' and 'onFail'.
 </p>
 
 ```js
-navigator.camera.getPicture(onSuccess, onFail, { quality: 100,
-        sourceType: Camera.PictureSourceType.PHOTOLIBRARY, 
-        destinationType: Camera.DestinationType.DATA_URL, 
-        encodingType: Camera.EncodingType.JPEG});
+navigator.camera.getPicture(onSuccess, onFail, { quality: 100, sourceType: Camera.PictureSourceType.PHOTOLIBRARY, destinationType: Camera.DestinationType.DATA_URL, encodingType: Camera.EncodingType.JPEG});
 ```
 
 With the following function the Instagram app will open. The url parameters must be filled with the return parameter of the function above.
