@@ -43,7 +43,7 @@ var app = {
         document.getElementById("btnCall").addEventListener("click", this.startCall);
         document.getElementById("btnOpenMap").addEventListener("click", this.openGoogle);
         document.getElementById("btnNavigator").addEventListener("click", this.openNavigator);
-        document.getElementById("btnOpenPage").addEventListener("click", this.openFBPage);
+        document.getElementById("btnInstagram").addEventListener("click", this.post);
     },
     startCall: function() {
         console.log('Button clicked.');
@@ -64,8 +64,26 @@ var app = {
     openNavigator: function () {
         window.location.href = "https://www.google.com/maps/dir/?api=1&destination=Mannheim";
     },
-    openFBPage: function () {
-        window.location.href = "https://www.facebook.com/zuck";
+    post: function() {
+      navigator.camera.getPicture(onSuccess, onFail, { quality: 100,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY, destinationType: Camera.DestinationType.DATA_URL, encodingType: Camera.EncodingType.JPEG});
+
+      function onSuccess(data) {
+        var url = "data:image/jpeg;base64," + data;
+        var caption = "Schönes Bild";
+        Instagram.share(url, caption, function (err) {
+          if (err) {
+            console.log("not shared");
+          } else {
+            console.log("shared");
+          }
+        });
+      }
+
+      function onFail(message) {
+        alert('Failed because: ' + message);
+      }
+
     }
 };
 
