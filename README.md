@@ -63,6 +63,7 @@ With the following function the Instagram app will open. The url parameters must
 <p align="center">
   <img src="/img/Instagram.png" width="250" height="433"/>
 </p>
+
 ```js
 Instagram.share(url, caption, function (err) {...});
 ```
